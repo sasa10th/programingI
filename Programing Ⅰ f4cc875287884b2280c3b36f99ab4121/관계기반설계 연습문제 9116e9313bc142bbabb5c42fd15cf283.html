@@ -821,4 +821,32 @@ int main()
         f(n, k);
     }
 }
-</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</code></pre><hr id="542355e4-2d82-4843-9052-ccd9ad41cc6c"/><h3 id="947f4b25-8d87-400f-85b5-fd4305730421" class="">#2</h3><h3 id="8476b958-5385-4fdb-97dc-72dc64bfce22" class="">오류 코드</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="076620ee-6e94-432a-961a-89bb9eb58bef" class="code"><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+using ll = long long;
+ll n, q;
+
+ll f(ll p){
+	q=log10(p);
+	ll t=pow(10, q);
+	if(p&lt;10) return p;
+	else return t*(p%10)+10*f((p%t)/10)+p/t;
+}
+
+int main(){
+	scanf(&quot;%lld&quot;, &amp;n);
+	printf(&quot;%lld&quot;, f(n));
+}</code></pre><hr id="dc8d8d01-5630-439b-b0df-566be7395c13"/><h3 id="fff8de86-7d9f-8076-bc2c-d4794d787877" class="">오류가 발생한 원인</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4e71b028-9d90-457e-9991-796de046ea7a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">오류가 발생한 원인은 숫자를 뒤집는 작업 중, 숫자 0을 처리하는 방식에서 문제가 생기기 때문이다. 예를 들어, 숫자 30121을 뒤집을 때, 문자열로 하여 뒤집는다면 &quot;12103&quot;이 되는데, 이에 반해 정수형 그대로 받게되면 3과 1을 뒤집은 상태로 012가 재귀함수에 호출, 12로 인식하게 된다. 이 과정에서 12가 21로 변환되며 10213이 되어버린다. 즉, 정리하자면 &quot;30121&quot;을 변환하면 12103이 되어야 하는데, 이때 숫자 0은 값이 없으므로 정수로 변환될 때 중간의 0이 사라지게 되고, 10213이 된다.</div></figure><hr id="bea4e6c2-ee2c-4380-b2b6-22aca6288b98"/><h3 id="23a53056-9122-45dc-9f58-3ebeb7376f2c" class="">수정하는 방법</h3><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="17f9ff07-aca1-45b4-a230-96da6d491181"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">숫자 0이 정수 앞에 있으면, 0을 인식하지 않아 자릿수가 줄어들어, log10 연산의 값이 달라져 문제가 된다. 따라서 0이 있어도 그 0의 개수를 포함하여 계산할 수 있게 재귀함수에 매개변수를 하나 더 추가하여 계산하면 될 것이다.</div></figure><hr id="33e637ab-4125-4cfd-8ce3-150eb6aa9a2e"/><h3 id="f5fe4f53-8722-467f-8740-de0d67df59d2" class="">완성된 프로그램</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ca2d731a-e178-479e-9b59-cbaf032b7970" class="code"><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+using ll = long long;
+ll n, t;
+
+ll f(ll p, ll q){
+	ll x=pow(10, q);
+	if(p&lt;10&amp;&amp;q&lt;=0) return p;
+	else return x*(p%10)+10*f((p%x)/10, q-2)+p/x;
+}
+
+int main(){
+	scanf(&quot;%lld&quot;, &amp;n);
+	t=log10(n);
+	printf(&quot;%lld&quot;, f(n, t));
+}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
