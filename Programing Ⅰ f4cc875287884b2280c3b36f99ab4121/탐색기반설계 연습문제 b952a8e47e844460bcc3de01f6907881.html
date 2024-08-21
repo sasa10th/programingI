@@ -681,5 +681,194 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="b952a8e4-7e84-4460-bcc3-de01f6907881" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/home_gray.svg"/></div><h1 class="page-title">탐색기반설계 연습문제</h1><p class="page-description"></p></header><div class="page-body"><hr id="5c0a61ea-db67-4198-a5b8-11949e5cb6cd"/><p id="974beaa9-cd14-4f5c-9bf0-82875b32b712" class="">
-</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</style></head><body><article id="b952a8e4-7e84-4460-bcc3-de01f6907881" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/home_gray.svg"/></div><h1 class="page-title">탐색기반설계 연습문제</h1><p class="page-description"></p></header><div class="page-body"><hr id="5c0a61ea-db67-4198-a5b8-11949e5cb6cd"/><h2 id="fff8de86-7d9f-8055-ac24-e4970d02eb99" class="">#1</h2><h3 id="2517eacf-280f-40fa-9a3e-82aee62d05a1" class="">문제 A:<strong> 함수로 배열의 최댓값 위치 리턴하기</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7a371fcd-ae70-4378-bd64-c911d0d79ed0" class="code"><code class="language-C++">int maxi(int p, int q){
+	long long int big=-2147483649;
+	int index=0;
+	for(int i=p;i&lt;=q;i++){
+		if(d[i]&gt;big){
+			big=d[i];
+			index=i;
+		}
+	}
+	return index;
+}</code></pre><hr id="4c208ac7-a821-4bf4-b03b-898a7a5d04fa"/><h3 id="52ebac23-3c00-4393-8fb0-be83ae10e5fb" class="">문제 B: <strong>이분탐색의 결과 2</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6f92d1ed-089c-4b6b-98e0-933db9995d02" class="code"><code class="language-C++">#include &lt;stdio.h&gt;
+int arr[201];
+
+void f(int l,int r,int s)
+{
+	int mid=(l+r)/2;
+	printf(&quot;%d &quot;, arr[mid]);
+	if(arr[mid]&gt;s){
+		f(l, mid-1, s);
+	}
+	else if(arr[mid]&lt;s){
+		f(mid+1, r, s);
+	}
+	else{
+		return;
+	}
+}
+
+int main()
+{
+	int n, m;
+	scanf(&quot;%d&quot;, &amp;n);
+	for(int i=1;i&lt;=n;i++){
+		scanf(&quot;%d&quot;, &amp;arr[i]);
+	}
+	scanf(&quot;%d&quot;, &amp;m);
+	f(1,n,m);
+}</code></pre><hr id="094a9a6c-0bb8-4c0e-b9b8-f4f24f23b61e"/><h3 id="409cc262-e833-42a5-8963-a19e5fb00d6a" class="">문제 C: <strong>lower bound(여러 경우)</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="923baa2e-7168-4ede-99af-f3698832e6d7" class="code"><code class="language-C++">#include &lt;stdio.h&gt;
+int arr[1000100];
+
+int f(int n, int k)
+{
+  int l=1;
+  int r=n+1;
+  while(l&lt;r)
+  {
+      int mid=(l+r)/2;
+      if(arr[mid]&gt;=k)
+      {
+         r=mid; 
+      }
+      else
+      {
+          l=mid+1;
+      }
+  }return r;
+}
+
+int main()
+{
+	int n, m, k;
+	scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+	for(int i=1;i&lt;=n;i++)
+	{
+		scanf(&quot;%d&quot;, &amp;arr[i]);
+	}
+	for(int i=1;i&lt;=m;i++){
+		scanf(&quot;%d&quot;, &amp;k);
+		printf(&quot;%d &quot;, f(n, k));
+	}
+}</code></pre><hr id="0daf995f-082e-4975-bee1-2cbec6f2420c"/><h3 id="1b7845f3-0cd8-4e57-ab2e-1970f0dccdb7" class="">문제 D: upp<strong>er bound(여러 경우)</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fc783b3e-541d-4c70-842d-6642a39f8be5" class="code"><code class="language-C++">#include &lt;stdio.h&gt;
+int arr[1000100];
+
+int f(int n, int k)
+{
+  int l=1;
+  int r=n+1;
+  while(l&lt;r)
+  {
+      int mid=(l+r)/2;
+      if(arr[mid]&gt;k)
+      {
+         r=mid; 
+      }
+      else
+      {
+          l=mid+1;
+      }
+  }return r;
+}
+
+int main()
+{
+	int n, m, k;
+	scanf(&quot;%d %d&quot;, &amp;n, &amp;m);
+	for(int i=1;i&lt;=n;i++)
+	{
+		scanf(&quot;%d&quot;, &amp;arr[i]);
+	}
+	for(int i=1;i&lt;=m;i++){
+		scanf(&quot;%d&quot;, &amp;k);
+		printf(&quot;%d &quot;, f(n, k));
+	}
+}</code></pre><hr id="a73c248e-6268-498a-bd65-c694d43e82a2"/><h3 id="a574c0f7-af41-49a7-923f-06409f1bb2ae" class="">문제 E: <strong>k가 처음 나타나는 위치</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="89f3ab1a-3bca-4795-b796-bfa36ff70338" class="code"><code class="language-C++">#include &lt;stdio.h&gt;
+int arr[1001];
+
+int f(int n, int k)
+{
+  int l=1;
+  int r=n+1;
+  while(l&lt;r)
+  {
+      int mid=(l+r)/2;
+      if(arr[mid]&gt;=k)
+      {
+         r=mid; 
+      }
+      else
+      {
+          l=mid+1;
+      }
+  }
+  if(arr[r]==k) return r;
+  else return -1;
+}
+
+int main()
+{
+	int n, k;
+	scanf(&quot;%d %d&quot;, &amp;n, &amp;k);
+	for(int i=1;i&lt;=n;i++)
+	{
+		scanf(&quot;%d&quot;, &amp;arr[i]);
+	}
+	printf(&quot;%d&quot;, f(n, k));
+}</code></pre><hr id="73dfd669-630c-4d52-a738-e96f3b749b4c"/><h3 id="774ad330-37f0-4057-befd-064c6d7088e2" class="">문제 F: <strong>두 수 사이의 수(여러 경우)</strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8a6baeb9-315a-456a-88ea-7b0c695bee86" class="code"><code class="language-C++">#include &lt;stdio.h&gt;
+int array[1000001];
+
+int lower_bound(int size, int target)
+{
+  int left=1;
+  int right=size+1;
+  while(left&lt;right)
+  {
+      int mid=(left+right)/2;
+      if(array[mid]&gt;=target)
+      {
+         right=mid;
+      }
+      else
+      {
+          left=mid+1;
+      }
+  }
+  return right;
+}
+
+int upper_bound(int size, int target)
+{
+  int left=1;
+  int right=size+1;
+  while(left&lt;right)
+  {
+      int mid=(left+right)/2;
+      if(array[mid]&gt;target)
+      {
+         right=mid; 
+      }
+      else
+      {
+          left=mid+1;
+      }
+  }
+  return right;
+}
+
+int main()
+{
+	int num_elements, num_queries, start, end;
+	scanf(&quot;%d&quot;, &amp;num_elements);
+	for(int i=1;i&lt;=num_elements;i++)
+	{
+		scanf(&quot;%d&quot;, &amp;array[i]);
+	}
+	scanf(&quot;%d&quot;, &amp;num_queries);
+	for(int i=1;i&lt;=num_queries;i++)
+	{
+		scanf(&quot;%d %d&quot;, &amp;start, &amp;end);
+		printf(&quot;%d\n&quot;, upper_bound(num_elements, end) - lower_bound(num_elements, start));
+	}
+}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
