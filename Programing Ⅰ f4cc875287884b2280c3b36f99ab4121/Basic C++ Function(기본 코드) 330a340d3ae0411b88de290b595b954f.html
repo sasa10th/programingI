@@ -699,6 +699,7 @@ int main()
 	}
 	sort(arr+1, arr+n+1);
 	// sort(배열 이름+정렬 시작 인덱스, 배열 이름+정렬 마지막 인덱스+1);
+	// 포인터이므로 &amp;arr[1]과 &amp;arr[n]을 써도 됨
 	for(int i=1;i&lt;=n;i++) {
 		printf(&quot;%d &quot;, arr[i]);
 	}
@@ -870,7 +871,7 @@ int main(){
     // 큐가 비어있을 수 있으므로, 빈 큐를 참조하면 정의되지 않은 동작이 발생
     // 여기서는 큐가 비어있는 상태에서 접근하여 예외가 발생
 
-    printf(&quot;%d\n&quot;, q.front().first); // 큐의 front()가 비어있으면 정의되지 않은 동작이 발생
+    printf(&quot;%d\n&quot;, q.front().first); // 큐의 front()가 비어있으면 정의되지 않은 동작 발생
     printf(&quot;%d\n&quot;, q.front().second); // 동일하게 정의되지 않은 동작 발생
 }</code></pre><hr id="22b73526-70f9-4b69-a139-d72a8e1ba420"/><h3 id="a6169c82-4b4e-46a4-a416-137c46af577d" class="">vector</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6b319da0-34a1-4d4b-b135-72caf8e050e3" class="code"><code class="language-C++">#include &lt;iostream&gt;
 #include &lt;vector&gt;
@@ -962,4 +963,4 @@ int main() {
 
     return 0;
 }
-</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cdad0e43-57a7-47ff-a9c8-f9c95c0e02d5"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="70f7d687-1b3d-4162-ac6d-a55d41b97b09" class="">sort(v.begin(), v.end()) 로 정렬할 수 있다.<br/>find(v.begin(), v.end(), k)-v.begin() 으로 벡터 내에 k의 값의 인덱스를 찾을 수 있다.<br/></p><p id="88ba0305-1f42-4e89-98b8-54d8a9f74b77" class=""><strong>v.end()는 실질적으론 마지막 요소의 다음 인덱스를 나타낸다.</strong></p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
